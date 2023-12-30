@@ -15,9 +15,8 @@ class Category(models.Model):
 class AddBook(models.Model):
     Name  = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=0 , default=0.00)
-    quantity = models.IntegerField(default=0)
     Content = models.TextField()
-    brand = models.ForeignKey(Category,on_delete=models.CASCADE)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE)
     image = models.ImageField(upload_to='bookCollection/media/uploads/', blank = True, null = True)
 
     def __str__ (self):
