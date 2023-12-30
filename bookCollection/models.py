@@ -33,3 +33,12 @@ class Review(models.Model):
     
     def __str__(self):
         return f"Comments by {self.name}"
+    
+
+class BuyBook(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    book = models.ForeignKey(AddBook,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"brow this Book name: {self.book.Name}"
