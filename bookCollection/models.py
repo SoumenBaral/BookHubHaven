@@ -1,3 +1,4 @@
+from tkinter.tix import Tree
 from django.db import models
 from django.db import models
 from django.contrib.auth.models import User
@@ -14,7 +15,7 @@ class Category(models.Model):
 
 class AddBook(models.Model):
     Name  = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=0 , default=0.00)
+    price = models.DecimalField(max_digits=10, decimal_places=0,null= True)
     Content = models.TextField()
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     image = models.ImageField(upload_to='bookCollection/media/uploads/', blank = True, null = True)
