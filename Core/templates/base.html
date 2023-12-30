@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg shadow-md sticky-top bg-opsity-25" style ="background-image: url('{% static 'image/book.jpg' %}'); background-size: cover; background-repeat: no-repeat; margin:0; ">
+    <nav class="navbar navbar-expand-lg shadow-md sticky-top" style ="background-image: url('{% static 'image/book.jpg' %}'); background-size: cover; background-repeat: no-repeat; margin:0; ">
         <div class="container-fluid">
-          <a class="navbar-brand fw-bold shadow text-warning" href=""><span class='text-primary fw-bold'>bookHub</span>Haven</a>
+          <a class="navbar-brand fw-bold shadow-lg text-warning" href=""><span class='text-primary fw-bold'>bookHub</span>Haven</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -31,10 +31,7 @@
               </li>
              {% endif %} {% endcomment %}
             </ul> 
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
+            
             <div class="p-2">
               <ul class='navbar-nav d-flex  me-auto mb-2 mb-lg-0'>
                 {% comment %} {% if request.user.is_authenticated %}
@@ -100,8 +97,8 @@
       </script>
       {% endfor %}
 
-
-      <div style='height: 90vh;' class=' bg-secondary bg-opacity-25'>
+      {% comment %} style='height: 90vh;'  {% endcomment %}
+      <div class=' bg-secondary bg-opacity-25'>
         {% block content %}
     
     
@@ -114,7 +111,7 @@
   
       <footer class="text-white text-center text-lg-start bg-dark ">
     <!-- Grid container -->
-    <div class="container p-1">
+    <div class="container p-2">
       <!--Grid row-->
       <div class="row mt-4">
         <!--Grid column-->
@@ -191,7 +188,7 @@
     <!-- Copyright -->
     <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.5);">
       © 2024 Copyright:
-      <a class="text-white text-decoration-none" href="https://carzone.com/">CarZone.com</a>
+      <a class="text-white text-decoration-none" href="https://carzone.com/">bookHubHaven.com</a>
     </div>
     <!-- Copyright -->
   </footer>
