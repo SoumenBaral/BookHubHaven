@@ -11,7 +11,7 @@
   <body>
     <nav class="navbar navbar-expand-lg shadow-md sticky-top" style ="background-image: url('{% static 'image/book.jpg' %}'); background-size: cover; background-repeat: no-repeat; margin:0; ">
         <div class="container-fluid">
-          <a class="navbar-brand fw-bold shadow-lg text-warning" href=""><span class='text-primary fw-bold'>bookHub</span>Haven</a>
+          <a class="navbar-brand fw-bold shadow-lg text-warning" href="{% url "home" %}"><span class='text-primary fw-bold'>bookHub</span>Haven</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -35,11 +35,12 @@
             <div class="p-2">
               <ul class='navbar-nav d-flex  me-auto mb-2 mb-lg-0'>
               {% if request.user.is_authenticated %}
+                
                 <li class="nav-item mx-3">
                   <a
-                    class=" btn btn-warning text-dark"
+                    class=" btn btn-dark text-white"
                     href=""
-                    >Profile</a
+                    >Welcome, {{ request.user.first_name }} balance : ${{request.user.account.balance}}</a
                   >
                 </li>
                 <li class="nav-item mx-3">

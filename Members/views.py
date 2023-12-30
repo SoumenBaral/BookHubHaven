@@ -17,10 +17,10 @@ class RegistrationFormView(CreateView):
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
-        messages.success(self.request, 'Successfully Create an Account Now LogIN ')
         user = form.save()
         login(self.request,user)
         return super().form_valid(form)
+       
     def form_invalid(self, form):
         response = super().form_invalid(form)
         messages.warning(self.request, 'SignUp in information incorrect')
