@@ -5,3 +5,5 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['Name', 'slug']
     
 admin.site.register(models.Category, CategoryAdmin)
+admin.site.register(models.AddBook)
+admin.site.register(models.Review)
