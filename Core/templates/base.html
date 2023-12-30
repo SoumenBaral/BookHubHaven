@@ -23,48 +23,48 @@
               </li>
  
             
-             {% comment %} {% if request.user.is_authenticated %}
+             {% if request.user.is_authenticated %}
               
               <li class="nav-item">
-                <a class="nav-link  fw-bold text-white" href="{% url "addCar" %}"> Add Car</a>
+                <a class="nav-link  fw-bold text-white" href=""> Add Car</a>
                 
               </li>
-             {% endif %} {% endcomment %}
+             {% endif %}
             </ul> 
             
             <div class="p-2">
               <ul class='navbar-nav d-flex  me-auto mb-2 mb-lg-0'>
-                {% comment %} {% if request.user.is_authenticated %}
+              {% if request.user.is_authenticated %}
                 <li class="nav-item mx-3">
                   <a
                     class=" btn btn-warning text-dark"
-                    href="{% url 'profile' %}"
+                    href=""
                     >Profile</a
                   >
                 </li>
                 <li class="nav-item mx-3">
                   <a
                     class=" btn btn-danger text-dark"
-                    href=""
+                    href="{% url "logout" %}"
                     >Logout</a
                   >
                 </li>
-                {% else %} {% endcomment %}
+              {% else %} 
                 <li class="nav-item mx-md-3 my-2 my-md-0">
                   <a
                     class=" btn btn-warning text-dark"
-                    href=""
+                    href="{% url "register" %}"
                     >Register</a
                   >
                 </li>
                 <li class="nav-item">
                   <a
                     class=" btn btn-primary text-dark"
-                    href=""
+                    href="{% url "login" %}"
                     >login</a
                   >
                 </li>
-                {% comment %} {% endif %} {% endcomment %}
+              {% endif %}
               </ul>
          </div>
            
@@ -137,7 +137,7 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-1 pb-1">Search something</h5>
+          <h5 class="text-uppercase mb-1 pb-1">Search Book</h5>
 
           <div class="form-outline form-white mb-4">
             <input type="text" id="formControlLg" class="form-control form-control" />
