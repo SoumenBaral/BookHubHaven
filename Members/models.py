@@ -4,7 +4,6 @@ from decimal import Decimal
 class MembersAccount(models.Model):
     user = models.OneToOneField(User,related_name ="account",on_delete=models.CASCADE)
     account_no = models.IntegerField(unique = True)
-    birth_date = models.DateField(null = True,blank = True)
     initial_deposit_date = models.DateField(auto_now_add = True)
     balance = models.DecimalField(max_digits=12, decimal_places=2,default=Decimal('0.00'))
 
