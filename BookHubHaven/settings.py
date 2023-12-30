@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Members',
     'Core',
+    'bookCollection',
     "crispy_forms",
     "crispy_bootstrap5", 
 ]
