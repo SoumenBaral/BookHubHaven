@@ -6,4 +6,5 @@ class CategoryAdmin(admin.ModelAdmin):
     
 admin.site.register(models.Category, CategoryAdmin)
 admin.site.register(models.AddBook)
-admin.site.register(models.Review)
+admin.site.register(models.Comment)
+admin.site.register(models.BuyBook)

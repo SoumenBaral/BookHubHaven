@@ -8,5 +8,5 @@ class AddCarForm(forms.ModelForm):
 
 class CommentForm(forms.ModelForm):
     class Meta:
-        model = models.Review
+        model = models.Comment
         fields = ['name', 'email', 'body']

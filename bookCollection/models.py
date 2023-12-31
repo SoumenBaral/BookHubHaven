@@ -23,9 +23,8 @@ class AddBook(models.Model):
     def __str__ (self):
         return self.Name
 
-class Review(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='userReview')
-    post = models.ForeignKey(AddBook, on_delete=models.CASCADE,related_name='comments')
+class Comment(models.Model):
+    book = models.ForeignKey(AddBook, on_delete=models.CASCADE,related_name='comments')
     name = models.CharField(max_length=30)
     email = models.EmailField()
     body = models.TextField()
@@ -33,7 +32,7 @@ class Review(models.Model):
     
     def __str__(self):
         return f"Comments by {self.name}"
-    
+
 
 class BuyBook(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
