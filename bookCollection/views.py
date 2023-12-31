@@ -78,7 +78,7 @@ class BookBorrowView(LoginRequiredMixin,View):
         user = self.request.user
         if user.account.balance > book.price:
             user.account.balance -= book.price
-            messages.success(request, 'book borrowed successful')
+            messages.success(request, 'book borrowed successful Please Review This Book so Another be inspired to Read this Book ')
             user.account.save(update_fields=['balance'])
             BuyBook.objects.create(
                 book = book,
@@ -86,7 +86,7 @@ class BookBorrowView(LoginRequiredMixin,View):
                 date=timezone.now(),
             )
     
-            return redirect('book') 
+            return redirect('profile') 
         else:
             messages.warning(request, 'Insufficient balance to borrow the book Deposit Please')
             return redirect('book')
