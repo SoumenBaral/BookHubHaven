@@ -5,6 +5,18 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .models import Transaction
 from .forms import DepositForm
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+
+def send_Mail(user,amount,mail_subject,template):
+        message= render_to_string(template, {
+                "user": user,
+                "amount": amount,
+            })
+        send_email =EmailMultiAlternatives(mail_subject,"", to=[user.email])
+        send_email.attach_alternative(message,'text/html')
+        send_email.send()
+
 
 class TransactionCreateMixin(LoginRequiredMixin,CreateView):
     template_name = 'transaction_form.html'
