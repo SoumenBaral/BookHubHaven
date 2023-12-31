@@ -89,8 +89,8 @@ WSGI_APPLICATION = 'BookHubHaven.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        "engines": { "node": ">=18.18.0 <19.0.0"},
+        'ENGINE': 'django.db.backends.sqlite3',
+        # "engines": { "node": ">=18.18.0 <19.0.0"},
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
