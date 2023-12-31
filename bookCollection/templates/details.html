@@ -33,7 +33,7 @@
     </div>
     {% endfor %}
 </div>
-{% comment %} {% if request.user.is_authenticated  %} {% endcomment %}
+{% if request.user.is_authenticated  %}
 <div class="card m-2">
     <div class="card-body">
         <form method="post">
@@ -44,5 +44,5 @@
             <button class="btn btn-warning">Submit</button>
     </div>
 </div>
-{% comment %} {% endif %} {% endcomment %}
+{% endif %}
 {% endblock content %}
