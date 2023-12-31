@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'BookHubHaven.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        # "engines": { "node": ">=18.18.0 <19.0.0"},
+        
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
@@ -132,7 +132,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-
+CSRF_TRUSTED_ORIGINS = ['https://bookhubhaven.onrender.com/','https://*.127.0.0.1']
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
