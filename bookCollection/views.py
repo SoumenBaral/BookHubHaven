@@ -7,6 +7,8 @@ from django.views import View
 from django.contrib import messages
 from . import forms
 from django.utils import timezone
+from django.utils.encoding import force_str
+from django.contrib.auth.models import User
 # Create your views here.
 class BookView(View):
     template_name = 'book.html'
@@ -22,6 +24,10 @@ class BookView(View):
         return render(request, self.template_name, {"data": data, "categories": categories})
     
     
+
+from django.contrib.auth.models import AnonymousUser
+from django.utils.encoding import force_str
+
 class DetailsPost(DetailView):
     model = AddBook
     pk_url_kwarg = 'id'
@@ -33,7 +39,7 @@ class DetailsPost(DetailView):
 
         if request.method == 'POST' and comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
-            new_comment.book = post  # Corrected attribute name to 'book'
+            new_comment.book = post
             new_comment.save()
 
         return self.get(request, *args, **kwargs)
@@ -42,11 +48,26 @@ class DetailsPost(DetailView):
         context = super().get_context_data(**kwargs)
         post = self.object
         comments = post.comments.all()
-        comment_form = forms.CommentForm()
+
+        user = self.request.user
+        user_str = force_str(user)
+
+        if not isinstance(user, AnonymousUser):  
+            # Check if the user is not anonymous
+            user_instance = User.objects.get(username=user_str) 
+             # Retrieve the User instance
+            has_bought_book = BuyBook.objects.filter(user=user_instance, book=post).exists()
+        else:
+            has_bought_book = False
+
+        if has_bought_book:
+            comment_form = forms.CommentForm()
+            context['comment_form'] = comment_form
 
         context['comments'] = comments
-        context['comment_form'] = comment_form
+        
         return context
+
 
 
 

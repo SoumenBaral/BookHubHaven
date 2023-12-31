@@ -39,7 +39,7 @@
                 <li class="nav-item mx-3">
                   <a
                     class=" btn btn-dark text-white"
-                    href=""
+                    href="{% url "profile" %}"
                     >Welcome, {{ request.user.first_name }} balance : ${{request.user.account.balance}}</a
                   >
                 </li>

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Members',
     'Core',
     'bookCollection',
+    'profiles',
     'transitions',
     "crispy_forms",
     "crispy_bootstrap5", 
