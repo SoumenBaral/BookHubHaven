@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from . import forms
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -52,11 +52,15 @@ class UserLoginView(LoginView):
         return context
 
 
-@method_decorator(login_required, name= 'dispatch')
-class logOut(LogoutView):
+# @method_decorator(login_required, name= 'dispatch')
+# class logOut(LogoutView):
    
-    def get_success_url(self):
-       messages.success(self.request, "You have been successfully logged out.")
-       return reverse_lazy('login')
+#     def get_success_url(self):
+#        messages.success(self.request, "You have been successfully logged out.")
+#        return reverse_lazy('login')
 
-    
+
+def logOut(request):
+    logout(request)
+    messages.success(request, "You have been successfully logged out.")
+    return redirect('login')
